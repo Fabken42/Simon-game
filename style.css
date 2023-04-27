@@ -1,0 +1,162 @@
+  @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+:root {
+    --cor-fundo: #F4EEE0;
+    --cor-da-letra:#03001C;
+    --btn-cima-esq: rgba(0, 128, 0, 0.5);
+    --btn-cima-esq-hover: green;
+    --btn-cima-dir: rgba(255, 0, 0, 0.5);
+    --btn-cima-dir-hover: red;
+    --btn-baixo-esq: rgba(255, 255, 0, 0.5);
+    --btn-baixo-esq-hover: yellow;
+    --btn-baixo-dir: rgba(0, 0, 255, 0.5);
+    --btn-baixo-dir-hover: blue;
+    --margin-tecla: 35px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: var(--cor-da-letra);
+    background-color: var(--cor-fundo);
+    font-family: 'Poppins', sans-serif;
+    background-color: rgb(252, 232, 208);
+    width: 100vw;
+    height: 100vh;
+}
+
+.nome-jogo {
+    font-size: 3em;
+}
+
+.pontuacao {
+    font-size: 1.5em;
+}
+
+/* O JOGO */
+.jogo{
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.painel{
+    width: 500px;
+    height: 500px;
+    background-color: #000000;
+    position: relative;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tecla{
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    transition: all .2s ease-in-out;
+}
+
+.tecla-cima-esq{
+    background-color: var(--btn-cima-esq);
+    border-top-left-radius: 100%;
+    top: var(--margin-tecla);
+    left: var(--margin-tecla);
+}
+
+.tecla-cima-esq:hover,.tecla-cima-esq.ativo{
+    background-color: var(--btn-cima-esq-hover);
+    cursor: pointer;
+}
+
+.tecla-cima-dir{
+    top: var(--margin-tecla);
+    right: var(--margin-tecla);
+    background-color: var(--btn-cima-dir);
+    border-top-right-radius: 100%;
+
+}
+
+.tecla-cima-dir:hover,.tecla-cima-dir.ativo{
+    background-color: var(--btn-cima-dir-hover);
+    cursor: pointer;
+}
+
+.tecla-baixo-esq{
+    bottom: var(--margin-tecla);
+    left: var(--margin-tecla);
+    background-color: var(--btn-baixo-esq);
+    border-bottom-left-radius: 100%;
+}
+
+.tecla-baixo-esq:hover,.tecla-baixo-esq.ativo{
+    background-color: var(--btn-baixo-esq-hover);
+    cursor: pointer;
+}
+
+.tecla-baixo-dir{
+    bottom: var(--margin-tecla);
+    right: var(--margin-tecla);
+    background-color: var(--btn-baixo-dir);
+    border-bottom-right-radius: 100%;
+}
+
+.tecla-baixo-dir:hover,.tecla-baixo-dir.ativo{
+    background-color: var(--btn-baixo-dir-hover);
+    cursor: pointer;
+}
+
+.circulo-centro{
+    background-color: #383838;
+    border: 30px solid black;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.jogar-btn{
+    color: rgb(189, 189, 189);
+    transition: all .2s ease-in-out;
+}
+
+.jogar-btn:hover{
+    color: white;
+    cursor: pointer;
+}
+
+.jogar-btn.desativado{
+    pointer-events: none;
+}
+
+.pontuacao{
+    font-size: 1.2em;
+    color: slateblue;
+}
+.recorde{
+    font-size: 1.2em;
+    color: slateblue;
+}
+
+/* TELA DE BLOQUEIO QUANDO SEQUÊNCIA É MOSTRADA */
+.tela-bloqueio {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    background-color: transparent;
+}
+
+.tela-bloqueio.inativa {
+    display: none;
+}
